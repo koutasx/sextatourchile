@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sexta Tour Chile — Viajes, Tours y Traslados a Conciertos desde Machalí</title>
+  <meta name="description" content="Agencia de viajes familiar desde Machalí. Traslados a conciertos, tours por Chile y excursiones. Contáctanos por WhatsApp." />
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header" id="modal-header">
+      <div class="modal-header-emoji" id="modal-emoji"></div>
+      <div class="modal-header-badge" id="modal-badge">Disponible</div>
+    </div>
+    <div class="modal-scroll">
+      <div class="modal-body">
+        <div class="modal-title" id="modal-titulo"></div>
+        <div class="modal-price" id="modal-precio"></div>
+        <div class="modal-info-grid" id="modal-info-grid"></div>
+        <div class="modal-desc" id="modal-desc"></div>
+        <div class="modal-incluye-title">Incluye</div>
+        <div class="modal-tags" id="modal-tags"></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <a class="modal-btn-wa" id="modal-wa-btn" href="#" target="_blank" rel="noopener noreferrer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+      <button class="modal-btn-close" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img
+      src="./img/logo.jpg"
+      alt="Sexta Tour Chile"
+      class="nav-logo-img"
+    />
+    Sexta<span>Tour</span> Chile
+  </a>
+  <ul class="nav-links">
+    <li><a href="#conciertos">Conciertos</a></li>
+    <li><a href="#tours">Tours</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/56961437784" class="nav-wa" target="_blank" rel="noopener noreferrer">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- HERO PARALLAX -->
+<section class="hero">
+  <!-- Foto de fondo con efecto parallax -->
+  <div class="hero-parallax-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-tint"></div>
+
+  <div class="hero-content fade-in">
+    <div class="hero-tag">
+      <span class="hero-tag-dot"></span>
+      Machalí, Región O'Higgins · Chile
+    </div>
+    <h1>Viaja a tus<br><em>conciertos</em><br>favoritos.</h1>
+    <p class="hero-desc">
+      Agencia de viajes familiar desde Machalí. Traslados a conciertos en Santiago, tours por Chile y excursiones inolvidables.
+    </p>
+    <div class="hero-actions">
+      <a href="#conciertos" class="btn-primary">
+        Ver próximos conciertos
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/56961437784" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar ahora
+      </a>
+    </div>
+    <!-- Indicador de scroll -->
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      Scroll para explorar
+    </div>
+  </div>
+
+  <div class="hero-stats fade-in">
+    <div>
+      <div class="hero-stat-num">+8</div>
+      <div class="hero-stat-label">años de experiencia</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">+500</div>
+      <div class="hero-stat-label">viajeros satisfechos</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">Machalí</div>
+      <div class="hero-stat-label">punto de salida</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCIERTOS -->
+<section id="conciertos">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">🎵 Próximos eventos</span>
+      <h2 class="section-title">Conciertos &amp; Traslados</h2>
+      <p class="section-sub">Reserva tu cupo y viaja tranquilo — nosotros manejamos.</p>
+    </div>
+
+    <!-- INSTRUCCIONES GOOGLE SHEETS -->
+    <div id="sheets-notice" style="background:#fff8f0;border:1px solid #ffa940;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.82rem;color:#7a3c00;display:flex;gap:10px;align-items:flex-start">
+      <span style="font-size:1.2rem;flex-shrink:0">⚙️</span>
+      <div>
+        <strong>Para activar el catálogo dinámico:</strong> reemplaza <code style="background:rgba(0,0,0,0.06);padding:1px 5px;border-radius:4px">TU_SHEET_ID</code> en el JavaScript por el ID de tu Google Sheet publicada. 
+        <a href="#como-configurar" style="color:#f57c1f;font-weight:600">Ver instrucciones más abajo →</a>
+      </div>
+    </div>
+
+    <div class="cards-grid" id="conciertos-grid">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        Cargando conciertos…
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOURS -->
+<section id="tours">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">🗺️ Excursiones</span>
+      <h2 class="section-title">Tours Destacados</h2>
+      <p class="section-sub">Descubre los mejores destinos saliendo desde Machalí.</p>
+    </div>
+    <div class="tours-grid" id="tours-grid">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        Cargando tours…
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">📸 Momentos</span>
+      <h2 class="section-title">Galería de Viajes</h2>
+      <p class="section-sub">Fotos y recuerdos de nuestras expediciones.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <span>🚌</span>
+        <div class="gallery-label">Partida desde Machalí</div>
+      </div>
+      <div class="gallery-item"><span>🎸</span><div class="gallery-label">En el concierto</div></div>
+      <div class="gallery-item"><span>🌊</span><div class="gallery-label">Tour Pichilemu</div></div>
+      <div class="gallery-item"><span>🏔️</span><div class="gallery-label">Cordillera</div></div>
+      <div class="gallery-item"><span>🎤</span><div class="gallery-label">Show en vivo</div></div>
+    </div>
+    <p style="margin-top:1.25rem;font-size:0.82rem;color:var(--ink3);text-align:center">
+      💡 Para agregar fotos reales, reemplaza los emojis placeholder por etiquetas <code style="background:var(--bg3);padding:1px 5px;border-radius:4px">&lt;img src="..."&gt;</code> dentro de cada <code style="background:var(--bg3);padding:1px 5px;border-radius:4px">.gallery-item</code>
+    </p>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nosotros-text fade-in">
+        <span class="section-tag">🏠 Quiénes somos</span>
+        <h2 class="section-title">Somos una agencia familiar de Machalí</h2>
+        <p>Con años de experiencia llevando familias, amigos y fanáticos de la música a los mejores conciertos y destinos de Chile. Nacimos en Machalí y crecimos con la confianza de nuestra comunidad.</p>
+        <p style="margin-top:0.75rem">Cada viaje lo organizamos con el mismo cuidado que le daríamos a un paseo propio — puntualidad, comodidad y buena onda garantizada.</p>
+        <div class="nosotros-features">
+          <div class="feature-item">
+            <div class="feature-icon">🚌</div>
+            <div>
+              <div class="feature-title">Buses modernos y cómodos</div>
+              <div class="feature-desc">Viaja relajado, nosotros manejamos.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📍</div>
+            <div>
+              <div class="feature-title">Salida desde Machalí</div>
+              <div class="feature-desc">Sin necesidad de ir primero a Rancagua.</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💬</div>
+            <div>
+              <div class="feature-title">Atención personalizada por WhatsApp</div>
+              <div class="feature-desc">Respuesta rápida, trato cercano.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nosotros-visual fade-in">
+        <div class="stat-row">
+          <div><div class="stat-big">+500</div><div class="stat-lbl">Viajeros felices</div></div>
+          <div class="stat-icon">😊</div>
+        </div>
+        <div class="stat-row">
+          <div><div class="stat-big">+8</div><div class="stat-lbl">Años de experiencia</div></div>
+          <div class="stat-icon">⭐</div>
+        </div>
+        <div class="stat-row">
+          <div><div class="stat-big">298</div><div class="stat-lbl">Publicaciones en Instagram</div></div>
+          <div class="stat-icon">📸</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">📞 Habla con nosotros</span>
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-sub">¿Tienes dudas? Escríbenos y te respondemos al tiro.</p>
+    </div>
+    <div class="contact-grid">
+
+      <!-- Columna izquierda: tarjetas + botones -->
+      <div class="contact-left">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Dirección</div>
+              <div class="contact-item-value">Las Lilas 580, Machalí</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div>
+              <div class="contact-item-label">Teléfono / WhatsApp</div>
+              <div class="contact-item-value">+56 9 6143 7784</div>
+            </div>
+          </div>
+          <a href="https://www.instagram.com/sextatourchile" class="contact-item contact-item-link" target="_blank" rel="noopener noreferrer">
+            <div class="contact-item-icon">📸</div>
+            <div>
+              <div class="contact-item-label">Instagram</div>
+              <div class="contact-item-value">@sextatourchile</div>
+            </div>
+            <div class="contact-item-arrow">→</div>
+          </a>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="contact-actions">
+          <a href="https://wa.me/56961437784?text=Hola!%20Me%20interesa%20información%20sobre%20sus%20viajes." class="contact-action-btn contact-action-wa" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://www.facebook.com/sextatourchile" class="contact-action-btn contact-action-fb" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna derecha: mapa -->
+      <div class="contact-map-wrap">
+        <iframe
+          class="contact-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.7!2d-70.7268!3d-34.1757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9664e45b59e7a0b3%3A0x0!2sLas%20Lilas%20580%2C%20Machal%C3%AD%2C%20O%27Higgins!5e0!3m2!1ses!2scl!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCCIONES -->
+<section id="como-configurar" style="background:var(--bg2);padding:3rem 1.5rem">
+  <div class="container">
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:2rem">
+      <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:1rem">
+        ⚙️ Cómo conectar Google Sheets (eliminar esta sección antes de publicar)
+      </h3>
+      <ol style="font-size:0.88rem;color:var(--ink2);line-height:2;padding-left:1.25rem">
+        <li>Crea una hoja de cálculo en Google Sheets.</li>
+        <li>En la primera fila agrega estos encabezados exactos: <code style="background:rgba(0,0,0,0.06);padding:1px 6px;border-radius:4px">nombre, fecha, lugar, precio, tipo, emoji, activo, mensaje_wa, descripcion, horario, punto_salida, cupos, incluye</code></li>
+        <li>En <strong>tipo</strong> escribe <code style="background:rgba(0,0,0,0.06);padding:1px 6px;border-radius:4px">concierto</code> o <code style="background:rgba(0,0,0,0.06);padding:1px 6px;border-radius:4px">tour</code>. En <strong>activo</strong> escribe <code style="background:rgba(0,0,0,0.06);padding:1px 6px;border-radius:4px">SI</code> para mostrarlo.</li>
+        <li>Ve a <strong>Archivo → Compartir → Publicar en la web</strong> → elige "Hoja 1" y formato "Valores separados por comas (.csv)" → Publicar.</li>
+        <li>Copia el ID de la URL de tu sheet (la parte larga entre <code>/d/</code> y <code>/edit</code>).</li>
+        <li>En el JavaScript de abajo busca <code style="background:rgba(0,0,0,0.06);padding:1px 6px;border-radius:4px">TU_SHEET_ID</code> y reemplázalo por ese ID.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img
+      src="https://instagram.fqrc1-1.fna.fbcdn.net/v/t51.82787-19/670983343_18006940973885591_7633554667019277879_n.jpg?stp=dst-jpg_s320x320_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fqrc1-1.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2gGIQ-jHYpkYB4FZnERPbQd4AytRvOfKy0guuWTromV-5quKdYVpp5t-FUGHdI3P9N4&_nc_ohc=dv7di55Jyt8Q7kNvwGCmLq4&_nc_gid=Z_r0RaMWsTj7aNfHpLLrLg&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_Af6SaXojPROOAUzkW6BB6tJLEZLwk_pjc6VuqRCgqTjLQA&oe=6A1BD287&_nc_sid=8b3546"
+      alt="Sexta Tour Chile"
+      class="footer-logo-img"
+    />
+    <p>© 2025 <strong>Sexta Tour Chile</strong> · Machalí, Región O'Higgins · Hecho con ❤️</p>
+  </div>
+</footer>
+<script src="./js/app.js"></script>
+</body>
+</html>
